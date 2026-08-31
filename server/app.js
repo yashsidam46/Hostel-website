@@ -1,13 +1,3 @@
-/*import express from "express"
-import cors from "cors"
-
-
-const app = express();
-
-app.post("/test", (req,res) => {
-    res.send("")
-})*/
-// server/src/app.js
 const express = require("express");
 const cors = require("cors");
 
@@ -36,4 +26,4 @@ app.get("/api/health", (req, res) => {
 // app.use("/api/reviews", reviewRoutes);
 // app.use("/api/complaints", complaintRoutes);
 
-module.exports = app;
+module.exports = app; 
