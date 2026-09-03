@@ -15,7 +15,7 @@ export const THEME = {
 };
 
 // Mock Data
-export const CITIES = ["Nagpur", "Pune", "Amravati"];
+export const CITIES = ["Nagpur", "Pune", "Amravati","SambhajiNgar"];
 
 export const STATS = [
   { label: "Hostels listed", value: 6 },

@@ -25,7 +25,7 @@ export function GovHeader({ onHome }) {
                 style={{ fontFamily: THEME.heading, color: "#FFFFFF" }}
                 className="text-base sm:text-lg font-bold tracking-tight"
               >
-                Kindly Act BY Yash 
+                Kindly Act By Yash 
               </div>
             </div>
           </button>
