@@ -1,7 +1,7 @@
 import { ShieldCheck, Menu } from "lucide-react";
 import { THEME } from "../utils/constants";
 
-export function GovHeader({ onHome }) {
+export function GovHeader({ onHome, onRegister }) {
   return (
     <header className="sticky top-0 z-30 shadow-md">
       <div className="h-1.5 w-full flex">
@@ -43,7 +43,7 @@ export function GovHeader({ onHome }) {
             <span className="text-sm font-medium hover:text-white transition-colors cursor-pointer">
               About
             </span>
-            <button
+            <button onClick={onRegister}
               className="px-5 py-2 rounded-md text-sm font-bold shadow-sm transition-all hover:brightness-110 active:scale-95"
               style={{ background: THEME.gold, color: THEME.navyDeep }}
             >

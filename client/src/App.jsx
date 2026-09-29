@@ -3,6 +3,7 @@ import { GovHeader } from "./components/GovHeader";
 import { Hero } from "./pages/Hero";
 import { ListScreen } from "./pages/ListScreen";
 import { DetailScreen } from "./pages/DetailScreen";
+import { Register } from "./pages/Register";
 import { THEME } from "./utils/constants";
 
 export default function App() {
@@ -11,8 +12,15 @@ export default function App() {
   const [hostel, setHostel] = useState(null);
 
   return (
-    <div className="min-h-screen w-full" style={{ background: THEME.surface }}>
-      <GovHeader onHome={() => setScreen("home")} />
+    <div
+      className="min-h-screen w-full"
+      style={{ background: THEME.surface }}
+    >
+      <GovHeader
+        onHome={() => setScreen("home")}
+        onRegister={() => setScreen("register")}
+      />
+
       {screen === "home" && (
         <Hero
           onSelectCity={(c) => {
@@ -21,6 +29,7 @@ export default function App() {
           }}
         />
       )}
+
       {screen === "list" && (
         <ListScreen
           city={city}
@@ -31,8 +40,18 @@ export default function App() {
           }}
         />
       )}
+
       {screen === "detail" && (
-        <DetailScreen hostel={hostel} onBack={() => setScreen("list")} />
+        <DetailScreen
+          hostel={hostel}
+          onBack={() => setScreen("list")}
+        />
+      )}
+
+      {screen === "register" && (
+        <Register
+          onBack={() => setScreen("home")}
+        />
       )}
     </div>
   );
