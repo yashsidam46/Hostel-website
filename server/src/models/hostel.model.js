@@ -52,3 +52,5 @@ const hostelSchema = new Schema ({
 {
     timestamps : true
 })
+  
+export const hostel = mongoose.model("hostel",hostelSchema)
