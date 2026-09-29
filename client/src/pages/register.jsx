@@ -1,4 +1,5 @@
 export function Register({ onBack }) {
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -8,30 +9,48 @@ export function Register({ onBack }) {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    const response = await fetch("http://localhost:8000/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
-    });
+    try {
+      const response = await fetch("http://localhost:8000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+        }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    console.log(data);
+      console.log(data);
+
+      if (response.ok) {
+        alert("Registration successful!");
+        onBack();
+      } else {
+        alert(data.message || "Registration failed");
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong");
+    }
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center">
+
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 w-96 p-6 shadow-lg"
+        className="flex flex-col gap-4 w-96 p-7 shadow-lg bg-white"
       >
-        <h1 className="text-2xl font-bold">Create Account</h1>
+
+        <h1 className="text-2xl font-bold">
+          Create Account
+        </h1>
 
         <input
           type="text"
@@ -64,10 +83,15 @@ export function Register({ onBack }) {
           Register
         </button>
 
-        <button type="button" onClick={onBack}>
+        <button
+          type="button"
+          onClick={onBack}
+        >
           Back
         </button>
+
       </form>
+
     </div>
   );
 }
